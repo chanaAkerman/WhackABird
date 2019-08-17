@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/game"
+    android:orientation="vertical"
+    android:gravity="center"
+    tools:context=".Game_Activity"
+    android:paddingBottom="16dp"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
+    android:paddingTop="16dp">
+
+    <TextView
+        android:id="@+id/score_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Score: 00"
+        android:textSize="20sp"/>
+
+    <TextView
+        android:id="@+id/miss_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Miss: 0"
+        android:textSize="20sp"/>
+
+
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="197dp">
+
+        <ImageButton
+            android:id="@+id/button_000"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:textSize="60sp">
+
+        </ImageButton>
+
+    </GridLayout>
+
+    <LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="0dp"
+    android:layout_weight="1">
+
+    <ImageButton
+        android:id="@+id/button_00"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="match_parent"
+        android:textSize="60sp"
+        android:background="@drawable/round_button">
+
+    </ImageButton>
+    <ImageButton
+        android:id="@+id/button_01"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="match_parent"
+        android:textSize="60sp"
+        android:background="@drawable/round_button">
+    </ImageButton>
+    <ImageButton
+        android:id="@+id/button_02"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="match_parent"
+        android:textSize="60sp"
+        android:background="@drawable/round_button">
+    </ImageButton>
+    </LinearLayout>
+
+    /<LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <ImageButton
+            android:id="@+id/button_03"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:textSize="60sp"
+            android:background="@drawable/round_button">
+
+        </ImageButton>
+        <ImageButton
+            android:id="@+id/button_04"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:textSize="60sp"
+            android:background="@drawable/round_button">
+        </ImageButton>
+        <ImageButton
+            android:id="@+id/button_05"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:textSize="60sp"
+            android:background="@drawable/round_button">
+        </ImageButton>
+    </LinearLayout>
+
+    /
+
+    <LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="0dp"
+    android:layout_weight="1">
+
+    <ImageButton
+        android:id="@+id/button_06"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="match_parent"
+        android:textSize="60sp"
+        android:background="@drawable/round_button">
+
+    </ImageButton>
+
+        <ImageButton
+            android:id="@+id/button_07"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:textSize="60sp"
+            android:background="@drawable/round_button">
+        </ImageButton>
+    <ImageButton
+        android:id="@+id/button_08"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="match_parent"
+        android:textSize="60sp"
+        android:background="@drawable/round_button">
+    </ImageButton>
+</LinearLayout>
+
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="47dp">
+
+        <Button
+            android:id="@+id/button_0090"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:textSize="60sp">
+
+        </Button>
+
+    </GridLayout>
+
+    <TextView
+        android:id="@+id/text_timer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerInParent="true"
+        android:layout_marginRight="10dp"
+        android:text="00:30"
+        android:textColor="@android:color/black"
+        android:textSize="60sp" />
+
+
+</LinearLayout>
