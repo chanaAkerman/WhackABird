@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.DrawableContainer;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.view.View;
@@ -24,6 +25,9 @@ import static com.example.whackabird.R.drawable.*;
 public class Game_Activity extends AppCompatActivity {
     public static final String EXTRA_TEXT = "com.example.application.whackABird.EXTRA_TEXT";
     public static final String EXTRA_NUMBER = "com.example.application.whackABird.EXTRA_NUMBER";
+
+    MediaPlayer playerFail;
+    MediaPlayer playerSuccess;
 
     public String userName;
     public int result=0;
@@ -118,12 +122,16 @@ public class Game_Activity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                // Toast.makeText(getApplicationContext(),"1", Toast.LENGTH_LONG).show();
+                StopFail();
+                StopSuccess();
                 if(press1){
+                    PlaySuccess(view);
                     scoreCounter++;
                     UpdateScoreText(scoreCounter);
                     goToSleepButton(1);
                 }
                 else{
+                    PlayFail(view);
                     missCounter++;
                     UpdateMissText(missCounter);
                 }
@@ -134,12 +142,16 @@ public class Game_Activity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 //Toast.makeText(getApplicationContext(),"2", Toast.LENGTH_LONG).show();
+                StopFail();
+                StopSuccess();
                 if(press2){
+                    PlaySuccess(view);
                     scoreCounter++;
                     UpdateScoreText(scoreCounter);
                     goToSleepButton(2);
                 }
                 else{
+                    PlayFail(view);
                     missCounter++;
                     UpdateMissText(missCounter);
                 }
@@ -150,12 +162,16 @@ public class Game_Activity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 //Toast.makeText(getApplicationContext(),"3", Toast.LENGTH_LONG).show();
+                StopFail();
+                StopSuccess();
                 if(press3){
+                    PlaySuccess(view);
                     scoreCounter++;
                     UpdateScoreText(scoreCounter);
                     goToSleepButton(3);
                 }
                 else{
+                    PlayFail(view);
                     missCounter++;
                     UpdateMissText(missCounter);
                 }
@@ -166,12 +182,16 @@ public class Game_Activity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 //Toast.makeText(getApplicationContext(),"4", Toast.LENGTH_LONG).show();
+                StopFail();
+                StopSuccess();
                 if(press4){
+                    PlaySuccess(view);
                     scoreCounter++;
                     UpdateScoreText(scoreCounter);
                     goToSleepButton(4);
                 }
                 else{
+                    PlayFail(view);
                     missCounter++;
                     UpdateMissText(missCounter);
                 }
@@ -182,12 +202,16 @@ public class Game_Activity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
               //  Toast.makeText(getApplicationContext(),"5", Toast.LENGTH_LONG).show();
+                StopFail();
+                StopSuccess();
                 if(press5){
+                    PlaySuccess(view);
                     scoreCounter++;
                     UpdateScoreText(scoreCounter);
                     goToSleepButton(5);
                 }
                 else{
+                    PlayFail(view);
                     missCounter++;
                     UpdateMissText(missCounter);
                 }
@@ -198,12 +222,16 @@ public class Game_Activity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                // Toast.makeText(getApplicationContext(),"6", Toast.LENGTH_LONG).show();
+                StopFail();
+                StopSuccess();
                 if(press6){
+                    PlaySuccess(view);
                     scoreCounter++;
                     UpdateScoreText(scoreCounter);
                     goToSleepButton(6);
                 }
                 else{
+                    PlayFail(view);
                     missCounter++;
                     UpdateMissText(missCounter);
                 }
@@ -214,12 +242,16 @@ public class Game_Activity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 //Toast.makeText(getApplicationContext(),"7", Toast.LENGTH_LONG).show();
+                StopFail();
+                StopSuccess();
                 if(press7){
+                    PlaySuccess(view);
                     scoreCounter++;
                     UpdateScoreText(scoreCounter);
                     goToSleepButton(7);
                 }
                 else{
+                    PlayFail(view);
                     missCounter++;
                     UpdateMissText(missCounter);
                 }
@@ -230,12 +262,16 @@ public class Game_Activity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                // Toast.makeText(getApplicationContext(),"8", Toast.LENGTH_LONG).show();
+                StopFail();
+                StopSuccess();
                 if(press8){
+                    PlaySuccess(view);
                     scoreCounter++;
                     UpdateScoreText(scoreCounter);
                     goToSleepButton(8);
                 }
                 else{
+                    PlayFail(view);
                     missCounter++;
                     UpdateMissText(missCounter);
                 }
@@ -246,12 +282,16 @@ public class Game_Activity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 //Toast.makeText(getApplicationContext(),"9", Toast.LENGTH_LONG).show();
+                StopFail();
+                StopSuccess();
                 if(press9){
+                    PlaySuccess(view);
                     scoreCounter++;
                     UpdateScoreText(scoreCounter);
                     goToSleepButton(9);
                 }
                 else{
+                    PlayFail(view);
                     missCounter++;
                     UpdateMissText(missCounter);
                 }
@@ -387,5 +427,43 @@ public class Game_Activity extends AppCompatActivity {
         intent.putExtra(EXTRA_NUMBER,result);
         startActivity(intent);
     }
+    public void PlayFail(View v){
+        if(playerFail==null){
+            playerFail=MediaPlayer.create(this,R.raw.systemfault);
+            playerFail.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+                @Override
+                public void onCompletion(MediaPlayer mediaPlayer) {
+                    StopFail();
+                }
+            });
+        }
+        playerFail.start();
+    }
+    public void PlaySuccess(View v){
+        if(playerSuccess==null){
+            playerSuccess=MediaPlayer.create(this,R.raw.accomplished);
+            playerSuccess.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+                @Override
+                public void onCompletion(MediaPlayer mediaPlayer) {
+                    StopSuccess();
+                }
+            });
+        }
+        playerSuccess.start();
+    }
+    public void StopFail(){
+        if(playerFail!=null){
+            playerFail.release();
+            playerFail=null;
+        }
+    }
+    public void StopSuccess(){
+        if(playerSuccess!=null) {
+            playerSuccess.release();
+            playerSuccess = null;
+        }
+    }
+
+
 
 }
